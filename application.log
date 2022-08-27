@@ -1,0 +1,5 @@
+2022-08-27 22:20:23.797  INFO 6944 --- [restartedMain] c.b.a.AddressBookAppApplication          : Starting AddressBookAppApplication using Java 17.0.2 on czone-PC with PID 6944 (C:\Users\c zone\IdeaProjects\AddressBookApp\target\classes started by c zone in C:\Users\c zone\IdeaProjects\AddressBookApp)
+2022-08-27 22:20:23.807 DEBUG 6944 --- [restartedMain] c.b.a.AddressBookAppApplication          : Running with Spring Boot v2.7.3, Spring v5.3.22
+2022-08-27 22:20:23.808  INFO 6944 --- [restartedMain] c.b.a.AddressBookAppApplication          : The following 1 profile is active: "dev"
+2022-08-27 22:20:43.189  WARN 6944 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-08-27 22:20:44.118  INFO 6944 --- [restartedMain] c.b.a.AddressBookAppApplication          : Started AddressBookAppApplication in 21.131 seconds (JVM running for 22.302)
