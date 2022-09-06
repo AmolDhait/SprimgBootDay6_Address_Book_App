@@ -2,17 +2,26 @@ package com.bridgelabz.addressbookapp.entity;
 
 import com.bridgelabz.addressbookapp.dto.AddressBookDTO;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 
+import javax.mail.internet.MimeMessage;
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 @Table (name= "addressbook")
 public @Data class AddressBookData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="person_id")
-    private int personId;
+    private Long personId;
 
     @Column(name = "first_name")
      private String firstName;
@@ -41,8 +50,11 @@ public @Data class AddressBookData {
     @Column(name = "email_Id")
     private String emailId;
 
+    @Column(name = "password")
+    private String password;
 
-    public AddressBookData( int personId, AddressBookDTO addressBookDTO)
+
+    public AddressBookData( Long personId, AddressBookDTO addressBookDTO)
     {
         this.personId = personId;
         this.firstName = addressBookDTO.firstName;
@@ -54,6 +66,7 @@ public @Data class AddressBookData {
         this.zipCode = addressBookDTO.zipCode;
         this.phoneNumber = addressBookDTO.phoneNumber;
         this.emailId = addressBookDTO.emailId;
+        this.password= addressBookDTO.password;
 
     }
 
@@ -75,6 +88,7 @@ public @Data class AddressBookData {
         this.zipCode=addressBookDTO.zipCode;
         this.phoneNumber=addressBookDTO.phoneNumber;
         this.emailId=addressBookDTO.emailId;
+        this.password=addressBookDTO.password;
     }
 //
 //    public int getPersonId() {

@@ -53,8 +53,8 @@ public class AddressBookController {
     private void sendmail(AddressBookData addressBookData){
 
         final String emailToRecipient = addressBookData.getEmailId();
-        final String emailSubject = "Successfully Email Send by Person Email Address";
-        final String emailMessage = "Sir/Mam, This is Mail Form DataBase , Your Details successfully Store In Database ";
+        final String emailSubject = "Your account created Successfully";
+        final String emailMessage = "Dear " + addressBookData.getFirstName()+", Your are Successfully Register With BridgeLabz";
 
         javaMailSender.send(new MimeMessagePreparator() {
             @Override
@@ -69,13 +69,34 @@ public class AddressBookController {
     }
 
 
+    private void createmail(AddressBookData addressBookData){
+
+        final String emailToRecipient = addressBookData.getEmailId();
+        final String emailSubject = "Your account created Successfully";
+        final String emailMessage = "Dear " + addressBookData.getFirstName()+", Your are Successfully Register With BridgeLabz";
+
+        javaMailSender.send(new MimeMessagePreparator() {
+            @Override
+            public void prepare(MimeMessage mimeMessage) throws Exception {
+                MimeMessageHelper mimeMessageHelper = new MimeMessageHelper( mimeMessage,true,"UTF-8");
+                mimeMessageHelper.setTo(emailToRecipient);
+                mimeMessageHelper.setText(emailMessage, true);
+                mimeMessageHelper.setSubject(emailSubject);
+                System.out.println("mailsend");
+            }
+        });
+    }
+
 
     @PostMapping("/create")
     public ResponseEntity<ResponseDTO> addAddressBookData(@RequestBody AddressBookDTO addressBookDTO){
         AddressBookData addressBookData = null;
         addressBookData = addressBookService.createAddressBookData(addressBookDTO);
         ResponseDTO responseDTO = new ResponseDTO("Created Address Book Data Successfully: ", addressBookData);
-        return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);    }
+        createmail(addressBookData);
+        return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
+
+    }
 
     @PutMapping("/update/{personId}")
     public ResponseEntity<ResponseDTO> updateAddressBookData(@PathVariable("personId") int personId, @RequestBody AddressBookDTO addressBookDTO){

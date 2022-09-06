@@ -38,6 +38,8 @@ public @Data class AddressBookDTO {
     @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}",flags = Pattern.Flag.CASE_INSENSITIVE,message = "Email Id Is Invalid")
     public String emailId;
 
+    public String password;
+
 
 //    public AddressBookDTO(String firstName, String lastName, String gender, String address, String city, String state, int zipCode, long phoneNumber, String emailId) {
 //        "firstName" : "firstName"
