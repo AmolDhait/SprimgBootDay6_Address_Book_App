@@ -18,7 +18,7 @@ import javax.mail.internet.MimeMessage;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/addressbookservice")
+//.2@RequestMapping("/addressbookservice")
 @Slf4j
 public class AddressBookController {
 

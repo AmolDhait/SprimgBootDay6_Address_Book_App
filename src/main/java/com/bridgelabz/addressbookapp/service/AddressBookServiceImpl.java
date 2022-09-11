@@ -35,6 +35,10 @@ public class AddressBookServiceImpl implements AddressBookService{
             //new ArrayList<>();
 
 
+    @Override
+    public String loginUser(ResponseLoginDTO responseLoginDTO) {
+        return null;
+    }
 
     @Override
     public List<AddressBookData> getAddressBookData() {
